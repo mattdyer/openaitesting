@@ -1,11 +1,14 @@
 import openai
 import uuid
+import datetime
+ 
+current_time = datetime.datetime.now()
 
 file = open('.env','r')
 
 openai.api_key = file.read()
 
-prompt = 'Give me a page of dialogue for a new Arnold Schwarzenegger movie'
+prompt = 'Where is the nearest gas station?'
 
 response = openai.Completion.create(model="text-davinci-003", prompt=prompt, temperature=0, max_tokens=400)
 
@@ -15,6 +18,7 @@ filename = str(uuid.uuid4()) + '.txt'
 
 result = open('results/' + filename, 'w')
 
+result.write(str(current_time) + '\n')
 result.write(prompt)
 result.write(response['choices'][0]['text'])
 
