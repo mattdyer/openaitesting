@@ -5,7 +5,7 @@ file = open('.env','r')
 
 openai.api_key = file.read()
 
-prompt = 'Give me a poem about turtles written with a scottish accent'
+prompt = 'Give me a page of dialogue for a new Arnold Schwarzenegger movie'
 
 response = openai.Completion.create(model="text-davinci-003", prompt=prompt, temperature=0, max_tokens=400)
 
