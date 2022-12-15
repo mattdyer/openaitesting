@@ -8,7 +8,7 @@ file = open('.env','r')
 
 openai.api_key = file.read()
 
-prompt = 'Write a memo letting everyone know that Christmas is coming a day early this year.'
+prompt = 'Generate a sql insert statement for 10 rows in a table containing First Name, Last Name, Address, Phone, Username columns'
 
 response = openai.Completion.create(model="text-davinci-003", prompt=prompt, temperature=0, max_tokens=400)
 

@@ -1,0 +1,14 @@
+2022-12-15 13:54:02.494690
+Generate a csv of 10 random people containing First Name, Last Name, Address, Phone, Username columns
+
+First Name,Last Name,Address,Phone,Username
+John,Smith,123 Main Street,123-456-7890,jsmith
+Jane,Doe,456 Park Avenue,987-654-3210,jdoe
+Bob,Johnson,789 Elm Street,456-123-7890,bjohnson
+Sally,Williams,321 Oak Street,321-654-0987,swilliams
+Tom,Brown,654 Maple Avenue,654-321-0987,tbrown
+Emily,Jones,987 Pine Street,987-123-4567,ejones
+Michael,Davis,123 Cedar Avenue,123-987-6543,mdavis
+Ashley,Miller,456 Birch Street,456-789-1234,amiller
+Matthew,Wilson,789 Oak Avenue,789-456-7890,mwilson
+Jessica,Taylor,321 Maple Street,321-987-6543,jtaylor

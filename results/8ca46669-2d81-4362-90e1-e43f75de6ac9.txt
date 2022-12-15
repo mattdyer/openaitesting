@@ -1,0 +1,14 @@
+2022-12-15 13:57:06.996075
+Generate a sql insert statement for 10 rows in a table containing First Name, Last Name, Address, Phone, Username columns
+
+INSERT INTO table_name (First Name, Last Name, Address, Phone, Username)
+VALUES ('John', 'Smith', '123 Main Street', '123-456-7890', 'jsmith'),
+       ('Jane', 'Doe', '456 Park Avenue', '234-567-8901', 'jdoe'),
+       ('Bob', 'Jones', '789 Elm Street', '345-678-9012', 'bjones'),
+       ('Sally', 'Smith', '123 Oak Street', '456-789-0123', 'ssmith'),
+       ('Tom', 'Doe', '456 Maple Avenue', '567-890-1234', 'tdoe'),
+       ('John', 'Jones', '789 Pine Street', '678-901-2345', 'jjones'),
+       ('Jane', 'Smith', '123 Cedar Street', '789-012-3456', 'jasmith'),
+       ('Bob', 'Doe', '456 Birch Avenue', '890-123-4567', 'bdoe'),
+       ('Sally', 'Jones', '789 Willow Street', '901-234-5678', 'sjones'),
+       ('Tom', 'Smith', '123 Maple Street', '012-345-6789', 'tsmith');
