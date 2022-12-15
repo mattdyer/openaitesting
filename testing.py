@@ -8,7 +8,7 @@ file = open('.env','r')
 
 openai.api_key = file.read()
 
-prompt = 'Create an ascii art picture of two people'
+prompt = 'Write a memo letting everyone know that Christmas is coming a day early this year.'
 
 response = openai.Completion.create(model="text-davinci-003", prompt=prompt, temperature=0, max_tokens=400)
 
