@@ -8,7 +8,7 @@ file = open('.env','r')
 
 openai.api_key = file.read()
 
-prompt = 'Where is the nearest gas station?'
+prompt = 'Create an ascii art picture of two people'
 
 response = openai.Completion.create(model="text-davinci-003", prompt=prompt, temperature=0, max_tokens=400)
 

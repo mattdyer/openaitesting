@@ -1,0 +1,10 @@
+2022-12-14 18:30:19.133245
+Make up some sports team names and give the scores of their games against each other.  Give me the data in csv format.
+
+Team Name,Score
+Lions,3
+Tigers,2
+
+Team Name,Score
+Bulldogs,4
+Huskies,1
