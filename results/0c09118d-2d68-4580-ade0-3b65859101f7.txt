@@ -1,0 +1,13 @@
+2022-12-16 08:34:19.661693
+how do I put something in my clipboard using python
+
+You can use the pyperclip module to put something in your clipboard using Python.
+
+To install the module, open a terminal window and type:
+
+pip install pyperclip
+
+Once the module is installed, you can use the following code to put something in your clipboard:
+
+import pyperclip
+pyperclip.copy('Hello World!')
