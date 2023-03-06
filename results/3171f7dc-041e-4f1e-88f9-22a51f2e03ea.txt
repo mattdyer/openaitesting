@@ -1,0 +1,38 @@
+2023-02-13 19:10:37.942895
+can you give me an example of an assembly program that adds 2 numbers
+
+; This program adds two numbers
+
+section .data
+
+num1: dd 5
+num2: dd 10
+
+section .text
+
+global _start
+
+_start:
+
+; Load the two numbers into the eax and ebx registers
+mov eax, [num1]
+mov ebx, [num2]
+
+; Add the two numbers
+add eax, ebx
+
+; Print the result
+mov edx, eax
+mov ecx, msg
+mov ebx, 1
+mov eax, 4
+int 0x80
+
+; Exit the program
+mov eax, 1
+mov ebx, 0
+int 0x80
+
+section .data
+
+msg db "The result is: %d", 0xa, 0

@@ -1,0 +1,9 @@
+2023-02-17 15:06:01.772470
+python markdown italics format
+
+Italics can be created by wrapping text in single asterisks (`*`) or underscores (`_`).
+
+For example:
+
+*This text will be italicized.*
+_This text will also be italicized._

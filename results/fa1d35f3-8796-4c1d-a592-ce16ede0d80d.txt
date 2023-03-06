@@ -1,0 +1,14 @@
+2023-02-15 17:47:53.851312
+python list files in a directory
+
+import os
+
+# Get the list of all files and directories 
+# in the root directory 
+dir_list = os.listdir("/") 
+
+# Iterate over all the entries
+for entry in dir_list:
+  # Print all the directories
+  if os.path.isdir(entry):
+    print(entry)

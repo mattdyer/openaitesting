@@ -1,0 +1,6 @@
+2023-02-15 17:44:27.890343
+python create directory
+
+import os
+
+os.mkdir("new_directory")

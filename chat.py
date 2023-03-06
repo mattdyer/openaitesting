@@ -17,7 +17,7 @@ print(prompt)
 
 prompt_hash = hashlib.md5(prompt.encode('utf-8')).hexdigest()
 
-cache_path = 'cache/' + str(prompt_hash) + '.json'
+cache_path = 'cache/' + 'chat_' + str(prompt_hash) + '.json'
 
 if(not exists(cache_path)):
 	
@@ -31,9 +31,15 @@ if(not exists(cache_path)):
 
 	
 	
-	response = openai.Completion.create(model="text-davinci-003", prompt=prompt, temperature=0, max_tokens=400)
+	response = openai.ChatCompletion.create(
+		model="gpt-3.5-turbo",
+		messages=[
+			{"role": "system", "content": "You are a helpful assistant."},
+			{"role": "user", "content": prompt}
+		]
+	)
 	
-	response_text = response['choices'][0]['text']
+	response_text = response['choices'][0]['message']['content']
 	
 	json_response = json.dumps(response)
 	
@@ -61,7 +67,7 @@ else:
 	
 	response = json.loads(json_response)
 	
-	response_text = response['choices'][0]['text']
+	response_text = response['choices'][0]['message']['content']
 	
 
 
