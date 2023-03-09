@@ -11,66 +11,58 @@ args = sys.argv
 
 del args[0]
 
+chat_id = args[0]
+
+del args[0]
+
 prompt = " ".join(args)
 
 print(prompt)
 
 prompt_hash = hashlib.md5(prompt.encode('utf-8')).hexdigest()
 
+chat_path = 'chats/' + chat_id + '.json'
+
 cache_path = 'cache/' + 'chat_' + str(prompt_hash) + '.json'
 
-if(not exists(cache_path)):
+if(exists(chat_path)):
+	chat_log_file = open(chat_path,'r')
 	
-	print('from api')
-	
-	current_time = datetime.datetime.now()
-
-	file = open('.env','r')
-
-	openai.api_key = file.read()
-
-	
-	
-	response = openai.ChatCompletion.create(
-		model="gpt-3.5-turbo",
-		messages=[
-			{"role": "system", "content": "You are a helpful assistant."},
-			{"role": "user", "content": prompt}
-		]
-	)
-	
-	response_text = response['choices'][0]['message']['content']
-	
-	json_response = json.dumps(response)
-	
-	saved_response = open(cache_path, 'w')
-	
-	saved_response.write(json_response)
-	
-	filename = str(uuid.uuid4()) + '.txt'
-
-	result = open('results/' + filename, 'w')
-
-	result.write(str(current_time) + '\n')
-	result.write(prompt)
-	result.write(response_text)
-
-	result.close()
-	
+	chat_log = json.loads(chat_log_file.read())
 else:
-	
-	print('from cache')
-	
-	saved_response = open(cache_path, 'r')
-	
-	json_response = saved_response.read()
-	
-	response = json.loads(json_response)
-	
-	response_text = response['choices'][0]['message']['content']
-	
+	chat_log = [
+		{"role": "system", "content": "You are a helpful assistant."}
+	]
 
+current_time = datetime.datetime.now()
 
+file = open('.env','r')
+
+openai.api_key = file.read()
+
+chat_log.append({"role": "user", "content": prompt})
+
+response = openai.ChatCompletion.create(
+	model="gpt-3.5-turbo",
+	messages=chat_log
+)
+
+response_text = response['choices'][0]['message']['content']
+
+print(response['usage']['total_tokens'])
+
+chat_log.append({"role": "assistant", "content": response_text})
+
+chat_log_archive = json.dumps(chat_log)
+
+saved_archive = open(chat_path, 'w')
+
+saved_archive.write(chat_log_archive)
+
+saved_archive.close()
+	
+	
+	
 print(response_text)
 
-pyperclip.copy(response_text)
+#pyperclip.copy(response_text)
